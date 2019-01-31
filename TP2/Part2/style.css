@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#logo{
+     background-image: url(img/logo-iut.jpg);
+     background-repeat: no-repeat;
+     background-color: aqua;
+     background-position: center;
+     background-size: 300px 150px;
+     width: 100%;
+     height: 130px;
+}
+
+
+/*
+
+In January, gold sales were about 200 million Dirhams per month. In February they
+increased slightly to Dhs 220 million, rising sharply to a peak of 350 million dirhams in
+March. Over the next four months, sales declined steadily, reaching a low point of 120
+million dirhams in July.
+In August, there was a sudden increase. Sales almost doubled, rising from Dhs 120
+million in July to Dhs 210 million in August. This was followed by a drop in September to
+Dhs 120 million.
+From September to October, sales recovered from Dhs 120 million to Dhs 180
+million. In October and November, sales remained steady, and there was a small increase
+in December to 190 million dirhams./*
