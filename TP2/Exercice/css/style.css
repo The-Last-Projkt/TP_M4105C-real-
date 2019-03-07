@@ -314,16 +314,33 @@ header div{
     display: none;
 }
 
+nav #mobile{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+    
+nav #mobile li{
+    line-height: 40px;
+    text-align: center;
+}
+    
+nav ul li{
+    float: none;
+}
+    
+.barre_de_recherche{
+        line-height: 40px;
+}    
+
 #responsive_nav{
     display: inline-block;
     text-align: center;
     width:30px;
-    margin-top: 0.8em;
-    
+    margin-top: 0.8em; 
 }
 
 #responsive_nav img{
-    width: 80%;
+    width:70%;
     filter: invert(100%);
 }
 
@@ -349,7 +366,9 @@ header div{
 
 @media (max-width: 425px) {
     
-
+#responsive_logo{
+    width:75%;
+}
     
 article .cover{
     display: block;
@@ -362,10 +381,11 @@ article #map{
     display: block;
     border: none;
 }
-    
+
 article .form{
     width: 100%;
     display: block;
+    padding:0;
 }
     
 article .form .submit{
