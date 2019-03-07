@@ -4,12 +4,12 @@
 	<title>Template</title>
     <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" type="text/css" href="FONT/font-awesome-4.7.0/css/font-awesome.min.css">
-	   <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" type="text/css" href="css/style.css" />
+
     
 </head>
     <body>
-        <div id="infoposition"></div>
         <header>
                 <div id="responsive_nav">
                     <a href="#">
@@ -121,8 +121,8 @@
         <h2></h2>
         <div id="global_bottom">
             <div id="map_form_zone">
-                <div class="map">
-                    <iframe id="google_map"style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2710.207049454749!2d-1.5729033!3d47.2125309!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805ec0fcda6c4cb%3A0xd620ca38dafa1e9a!2s2+Rue+La+Motte+Picquet%2C+44100+Nantes!5e0!3m2!1sfr!2sfr!4v1423244007186" frameborder="0"></iframe>
+                <div id="map" style="height:400px;">
+   <!--                 <iframe id="google_map"style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2710.207049454749!2d-1.5729033!3d47.2125309!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4805ec0fcda6c4cb%3A0xd620ca38dafa1e9a!2s2+Rue+La+Motte+Picquet%2C+44100+Nantes!5e0!3m2!1sfr!2sfr!4v1423244007186" frameborder="0"></iframe>-->
                 </div><div class="form">
                     <form novalidate>
                         <div class="short">
@@ -162,6 +162,64 @@
         <footer>
             <p>Yohann MOY - TPA</p>
         </footer>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3akJQ1yWT82E97VXZFfLElPU5c7xXhqg"
+  type="text/javascript"></script>
+        <script>
 
+function maPosition(position) {
+ 
+    // Un nouvel objet LatLng pour Google Maps avec les paramètres de position
+    latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
+    var centerpos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    // Ajout d'un marqueur à la position trouvée
+    var optionsGmaps = {
+        center:centerpos,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoom: 15
+    };
+ 
+    // Initialisation de la carte pour l'élément portant l'id "map"
+    var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);
+    
+    marker = new google.maps.Marker({
+    position: latlng,
+    map: map,
+    title:"Vous êtes ici",
+});
+ 
+}
+    
+    // Fonction de callback en cas d’erreur
+    function erreurPosition(error) {
+        var info = "Erreur lors de la géolocalisation : ";
+        switch(error.code) {
+        case error.TIMEOUT:
+    	info += "Timeout !";
+        break;
+    
+        case error.PERMISSION_DENIED:
+	    info += "Vous n’avez pas donné la permission";
+        break;
+        
+        case error.POSITION_UNAVAILABLE:
+    	info += "La position n’a pu être déterminée";
+        break;
+        
+        case error.UNKNOWN_ERROR:
+	    info += "Erreur inconnue";
+        break;
+    }    
+    // document.getElementById("infoposition").innerHTML = info;
+}
+    if(navigator.geolocation){
+        survId = navigator.geolocation.getCurrentPosition(maPosition,erreurPosition);}
+    
+    else {
+        alert("Ce navigateur ne supporte pas la géolocalisation");
+    }
+            
+        
+</script>
 </body>
 </html>

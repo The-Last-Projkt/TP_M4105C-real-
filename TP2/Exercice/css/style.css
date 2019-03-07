@@ -201,7 +201,7 @@ article #map_form_zone{
     margin-top: 2rem;
 }
 
-article .map{
+article #map{
     vertical-align: top;
     display: inline-block;
     width: 50%;
@@ -211,7 +211,7 @@ article .map{
     border-right: 2px solid #808080;
 }
 
-article .map #google_map{
+article #map #google_map{
     width: 100%;
     margin: auto;
     height: 400px;
@@ -357,7 +357,7 @@ article .cover{
     margin-bottom: 1.5rem;
 }
         
-article .map{
+article #map{
     width:100%;
     display: block;
     border: none;
