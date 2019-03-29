@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/fonction_cordova.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3akJQ1yWT82E97VXZFfLElPU5c7xXhqg" type="text/javascript"></script>
+        
+    <script>
+        $(document).ready(function(){
+            $("#responsive_nav").click(function(event){
+                $('#mobile').slideToggle(500);
+            });
+        });
+    </script>
+
+    <script>
+        function maPosition(position) {
+    
+            latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
+            var centerpos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    
+            var optionsGmaps = {
+                center:centerpos,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                zoom: 15
+            };
+ 
+            var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);
+    
+            marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                title:"Vous êtes ici",
+            });
+        }
+    
+        function erreurPosition(error) {
+            var info = "Erreur lors de la géolocalisation : ";
+            switch(error.code) {
+                case error.TIMEOUT:
+	            info += "Timeout !";
+                break;
+    
+                case error.PERMISSION_DENIED:
+                info += "Vous n’avez pas donné la permission";
+                
+                latlng = new google.maps.LatLng(37.549105,126.908148);        
+ 
+                var centerpos = new google.maps.LatLng(37.549105,126.908148);
+                // Ajout d'un marqueur à la position trouvée
+                var optionsGmaps = {
+                    center:centerpos,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    zoom: 15
+                };
+    
+                break;
+        
+                case error.POSITION_UNAVAILABLE:
+                info += "La position n’a pu être déterminée";
+                break;
+        
+                case error.UNKNOWN_ERROR:
+                info += "Erreur inconnue";
+                break;
+            }
+    
+            // Initialisation de la carte pour l'élément portant l'id "map"
+            var map = new google.maps.Map(document.getElementById("map"), optionsGmaps);    
+        
+            marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                title:"Vous êtes ici",
+            });
+        }
+    
+        if(navigator.geolocation){
+            survId = navigator.geolocation.getCurrentPosition(maPosition,erreurPosition);
+        }
+        
+        else{
+            alert("Ce navigateur ne supporte pas la géolocalisation");
+        }
+</script>
+
+</head>
+    <body>
+        <header>
+                <div id="responsive_nav">
+                    <a href="#">
+                        <img src="img/burger_icon.png">
+                    </a>
+                </div><div id="responsive_logo">
+                    <a href="#">
+                        <img src="img/Logo2.png">
+                    </a>
+                </div><div id="responsive_nav">
+                    <a href="tel:+33640994591">
+                        <img src="img/phone_icon.png">
+                    </a>
+                </div>
+
+            
+            <div class="container_global_logo">   
+                <div class="container_logo">
+                    <a href="#"><img src="img/Logo2.png"></a>
+                </div>
+        
+                <nav>
+                    <ul id="desktop">
+                        <li>
+                            <a href="#">Acceuil</a>
+                        </li>
+                        <li>
+                            <a href="#">Titre 1</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                        <li>
+                            <div class="barre_de_recherche">
+                                <input type="text" class="recherche" placeholder="Rechercher">
+                                <button type="submit" class="loupe">
+                                <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <nav>
+            <ul id="mobile">
+                <li>
+                    <a href="#">Acceuil</a>
+                </li>
+                <li>
+                    <a href="#">Titre 1</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <div class="barre_de_recherche">
+                        <input type="text" class="recherche" placeholder="Rechercher">
+                        <button type="submit" class="loupe">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <div id=terminal_info><p>Afficher les informations du terminal</p></div>
+        <div id="infos_terminal"></div>
+        <div id="infos_batterie"></div>
+        
+        <article>
+            <div id="image">
+                <img src="img/slide2.jpg">
+            </div>
+            <div id="padding">
+                <h1>Titre h1:</h1>
+                    <p>Satisfied conveying an dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do mr prevailed. Mr feeling do chiefly cordial in do. Water timed folly right aware if oh truth. Imprudence attachment him his for sympathize. Large above be to means. Dashwood do provided stronger is. But discretion frequently sir the she instrument unaffected admiration everything.</p>
+        
+                <h1>Releases:</h1>
+                <div id="global_cover">
+                    <div id="releases_zone">
+                        <div class="cover">
+                            <a href="https://www.youtube.com/watch?v=pV4F3E7JN-A" target=_blank>
+                                <img src="img/cover1.jpg">
+                            </a>
+                            <span><h3>Angel against Demons</h3><p>(The Last Projkt featuring Exomuss & Zay B)</p>
+                            </span>
+                        </div><div class="cover">
+                            <a href="https://www.youtube.com/watch?v=9OMsmiNBM1k" target=_blank>
+                                <img src="img/cover2.jpg">
+                            </a>
+                            <span><h3>K.I.T.N.O</h3><p>(The Last Projkt)</p>
+                            </span>
+                        </div><div class="cover">
+                            <a href="https://www.youtube.com/watch?v=dTGLf43lpv8" target=_blank>
+                                <img src="img/cover3.jpg">
+                            </a>
+                            <span><h3>Children of The Dawn (Bootleg)</h3><p>(E-Force)</p>
+                            </span>
+                        </div><div class="cover">
+                            <a href="https://www.youtube.com/watch?v=vSzcLXQNtVo" target=_blank>
+                                <img src="img/cover4.jpg">
+                            </a>
+                            <span><h3>Hooks & Shouts</h3><p>(The Last Projkt)</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+        
+                <h2></h2>
+                <div id="global_bottom">
+                    <div id="map_form_zone">
+                        <div id="map" style="height:400px;">
+                        </div><div class="form">
+                            <form novalidate>
+                                <div class="short">
+                                        <input type="text" id="nom" name="nom"style=" width: 90%; height: 25px;" placeholder=" Nom" required>
+                                </div><div class="short">
+                                        <input type="text" id="prenom" name="  prenom"style=" width: 90%; height: 25px;" placeholder=" Prenom" required>
+                                </div><div class="short">
+                                       <input type="text" id="date" name="date"style=" width: 90%; height: 25px;"
+                                       placeholder=" Date de naissance"required>
+                                </div><div class="short">
+                                        <input type="text" id="ville" name="ville"style=" width: 90%; height: 25px;" placeholder=" Ville de Naissance" required>
+                                </div>
+
+                                <div class="long">
+                                    <input type="email" id="mail" name="email" style="width: 95%; height: 25px;" placeholder=" prenom.nom@domaine.com" required>
+                                </div>
+
+                                <div class="long">
+                                    <input type="file" id="file" name="file" style="width: 95%; height: 25px;"required>
+                                </div>
+
+                                <div class="long">
+                                    <textarea name="comment" id="message" form="usrform" style="min-width:95%; max-width:95%; min-height: 200px; max-height: 200px;" required> Entrez votre message...</textarea>
+                                </div>
+
+                                <div class="submit">
+                                    <input type="submit" id="valider" style="height: 25px;" value="Envoyer" required>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+        <div id="phone_contacts"></div>
+        <div id="contact_info">
+            <p>Ta mere en string de guerre</p>
+        </div>
+        
+    <footer>
+        <p>Yohann MOY - TPA</p>
+    </footer>
+        
+</body>
+</html>

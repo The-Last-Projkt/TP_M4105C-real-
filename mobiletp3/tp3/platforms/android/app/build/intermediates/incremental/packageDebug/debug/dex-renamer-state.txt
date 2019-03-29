@@ -1,0 +1,4 @@
+#Thu Mar 28 17:35:06 CET 2019
+base.0=E\:\\MegaSync\\mobiletp3\\tp3\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
