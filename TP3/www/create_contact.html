@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Template</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="font/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="js/fonction_cordova_bis.js"></script>
+        
+    <script>
+        $(document).ready(function(){
+            $("#responsive_nav").click(function(event){
+                $('#mobile').slideToggle(500);
+            });
+        });
+    </script>
+
+</head>
+    <body>
+        <header>
+                <div id="responsive_nav">
+                    <a href="#">
+                        <img src="img/burger_icon.png">
+                    </a>
+                </div><div id="responsive_logo">
+                    <a href="#">
+                        <img src="img/Logo2.png">
+                    </a>
+                </div><div id="responsive_nav">
+                    <a href="tel:+33640994591">
+                        <img src="img/phone_icon.png">
+                    </a>
+                </div>
+
+            
+            <div class="container_global_logo">   
+                <div class="container_logo">
+                    <a href="#"><img src="img/Logo2.png"></a>
+                </div>
+        
+                <nav>
+                    <ul id="desktop">
+                        <li>
+                            <a href="index.html">Acceuil</a>
+                        </li>
+                        <li>
+                            <a href="#">Titre 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <div class="barre_de_recherche">
+                                <input type="text" class="recherche" placeholder="Rechercher">
+                                <button type="submit" class="loupe">
+                                <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <nav>
+            <ul id="mobile">
+                <li>
+                    <a href="index.html">Acceuil</a>
+                </li>
+                <li>
+                    <a href="#">Titre 1</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <div class="barre_de_recherche">
+                        <input type="text" class="recherche" placeholder="Rechercher">
+                        <button type="submit" class="loupe">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>    
+        
+        <article>
+            
+            <div id="contact_list">
+                <h1>Liste de contacts:</h1>
+            </div>
+            <div id="phone_contacts"></div>
+            <div id="telephone"></div>
+            
+            <div id="contact_info"></div>
+            <div id ="pre_masked">
+            <a href="#" id="masked">Créer un nouveau contact?</a></div>
+            
+            <div id ="pre_del">
+                <a href="#" id="del_contact">Supprimer un contact?</a></div>
+            <div id=kindaform2>
+                <h1>Supprimer un contact:</h1>
+                <input type="text" id="name_to_del" name="name_to_del"style=" width: 100%; height: 25px;" placeholder="Entrez le nom du contact à supprimer" required>
+                <button id="deleteContact"
+                type="button">
+                Supprimer
+                </button>
+            </div>
+            
+            
+            <div id=kindaform>
+                <h1>Créer un nouveau contact:</h1>
+                <input type="text" id="name" name="name"style=" width: 100%; height: 25px;" placeholder="Entrez un nom" required>
+
+                <input type="text" id="phone" name="phone"style=" width: 100%; height: 25px;" placeholder="Entrez un n° de tel" required>
+
+                <input type="email" id="mail" name="mail"style=" width: 100%; height: 25px;" placeholder="Entrez une adresse mail" required>
+
+                <input type="text" id="street" name="street"style=" width: 100%; height: 25px;" placeholder="Entrez une adresse" required>
+
+                <input type="text" id="city" name="city"style=" width: 100%; height: 25px;" placeholder="Entrez une ville" required>
+
+                <button id="createContact"
+                type="button">
+                Ajouter contact
+                </button>
+            </div>   
+        </article>
+        
+    <footer>
+        <p>Yohann MOY - TPA</p>
+    </footer>
+        
+</body>
+</html>

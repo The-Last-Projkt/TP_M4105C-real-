@@ -1,0 +1,1 @@
+Faire en sorte d'une utilisation moindre des données mobile en changeant les images en responsive et adapter le code au W3C
